@@ -24,9 +24,9 @@ public class Temporal extends Empleado {
     int diasPagados = Math.min(diasActivos, 15);
     return tarifaDiaria * diasPagados;
 }
-@Override public double Bono() {
+    @Override public double Bono() {
     return (diasActivos >= 12) ? salarioQuincena() * 0.05 : 0.0;
-}
+   }
 
 
     @Override
@@ -75,10 +75,5 @@ public class Temporal extends Empleado {
     @Override
     public String toString() {
         return "Temporal{" + "nombre=" + nombre + '}';
-    }
-
-    @Override
-    public String getTipo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

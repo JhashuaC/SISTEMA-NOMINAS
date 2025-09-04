@@ -67,19 +67,14 @@ public class PorHoras extends Empleado {
  
     @Override public double Bono() {
     return (horasQuincena > 80f) ? (tarifaHora * horasQuincena) * 0.10 : 0.0;
-}
+    }
 
 
     @Override
     public String toString() {
         return "PorHoras{" + "nombre=" + nombre + '}';
     }
-
-    @Override
-    public String getTipo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-   
+    
+    
     
 }
