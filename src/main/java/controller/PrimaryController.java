@@ -2,6 +2,8 @@ package controller;
 
 import app.App;
 import java.io.IOException;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -56,8 +58,8 @@ public class PrimaryController {
         colNombre1.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getNombre()));
         colTipo1.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getTipo()));
         colSalario1.setCellValueFactory(cell -> new SimpleDoubleProperty(cell.getValue().salarioQuincena()).asObject());
-        colBono1.setCellValueFactory(cell -> new SimpleDoubleProperty(cell.getValue().getBono()).asObject());
-        colTotal1.setCellValueFactory(cell -> new SimpleDoubleProperty(cell.getValue().getTotalAPagar()).asObject());
+        //colBono1.setCellValueFactory(cell -> new SimpleDoubleProperty(cell.getValue().getBono()).asObject());
+       // colTotal1.setCellValueFactory(cell -> new SimpleDoubleProperty(cell.getValue().getTotalAPagar()).asObject());
 
         tablaUsuarios1.setItems(empleados);
         

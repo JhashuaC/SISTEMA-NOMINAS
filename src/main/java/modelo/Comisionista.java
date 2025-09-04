@@ -98,4 +98,9 @@ public class Comisionista extends Empleado {
     public String toString() {
         return "Comisionista{" + "nombre=" + nombre + '}';
     }
+
+    @Override
+    public String getTipo() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

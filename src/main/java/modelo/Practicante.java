@@ -17,7 +17,8 @@ public class Practicante implements BonificableInterface {
         this.apoyoQuincena = apoyoQuincena;
     }
 
-  @Override public double bono() { return 0.0; } // “sin bonificación por defecto”
+    @Override
+  public double Bono() { return 0.0; } // “sin bonificación por defecto”
 
     public String getCedula() {
         return cedula;
@@ -47,4 +48,6 @@ public class Practicante implements BonificableInterface {
     public String toString() {
         return "Practicante{" + "cedula=" + cedula + ", nombre=" + nombre + ", apoyoQuincena=" + apoyoQuincena + '}';
     }
+
+ 
 }
