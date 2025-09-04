@@ -8,7 +8,6 @@ public abstract class Empleado implements SalarioQuincenaInterface, EstrategiaIn
     public double nomina() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
     public void fabricarEmpleado() {
     }
 }
