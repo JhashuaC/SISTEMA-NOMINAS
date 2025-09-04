@@ -27,18 +27,13 @@ public class Asalariado extends Empleado {
     public double pagarIncentivo() {
      return 0;
     }
+    
+   @Override 
+   public double Bono(){
+       return salarioMensual * 0.05;
+   } 
 
-<<<<<<< HEAD
-    @Override
-    public double Bono() {
-      return 0;
-    }
-=======
-   
-   @Override public double Bono() { return salarioMensual * 0.05; } // exacto al enunciado
-
->>>>>>> b8c0f2aad2946c0d6bc1afff3b7ac9625df67388
-
+  
     @Override
     public String getCedula() {
         return cedula;
