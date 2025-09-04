@@ -75,24 +75,20 @@ tablaUsuarios1.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     // ================== CARGAR CSV ==================
-    @FXML
-    private void onCargar(ActionEvent event) {
-        try {
-            String ruta = seleccionarArchivoCSV();
-            if (ruta == null) {
-                // fallback: data/empleados.csv si existe
-                File fallback = new File("data/empleados.csv");
-                if (!fallback.exists()) {
-                    info("No se seleccionó archivo", "Selecciona un CSV o coloca uno en data/empleados.csv.");
-                    return;
-                }
-                ruta = fallback.getAbsolutePath();
-            }
-            cargarDesdeCSV(ruta);
-        } catch (Exception ex) {
-            error("Error al cargar CSV", ex.getMessage());
+@FXML
+private void onCargar(ActionEvent event) {
+    try {
+        String ruta = seleccionarArchivoCSV();          // 1) seleccionar archivo
+        if (ruta == null) {                             // si canceló, no seguimos
+            info("Selección requerida", "Debes seleccionar un archivo CSV.");
+            return;
         }
+        cargarDesdeCSV(ruta);                           // 2) cargar y poblar la tabla
+    } catch (Exception ex) {
+        error("Error al cargar CSV", ex.getMessage());  // 3) manejar errores
+        ex.printStackTrace();
     }
+}
 
     private String seleccionarArchivoCSV() {
         FileChooser fc = new FileChooser();
@@ -213,9 +209,9 @@ tablaUsuarios1.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     @FXML
-    private void onExportar(ActionEvent event) {
+    private void OnExportar(ActionEvent event) {
         // Implementar luego con tu RepositorioCSV.escribirLineas(...)
-        info("Exportar", "Implementa aquí la exportación a CSV (planilla_quincena.csv).");
+    //    info("Exportar", "Implementa aquí la exportación a CSV (planilla_quincena.csv).");
     }
 
     @FXML
