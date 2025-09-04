@@ -19,7 +19,8 @@ public class Asalariado extends Empleado {
 
     @Override
     public double salarioQuincena() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      return salarioMensual/2;
+ 
     }
 
     @Override
