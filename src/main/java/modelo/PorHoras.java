@@ -6,17 +6,17 @@ public class PorHoras extends Empleado {
 
     private String nombre;
 
-    private float tarifaDiaria;
+    private float tarifaHora;
 
     private float horasQuincena;
     
       public PorHoras() {
     }
 
-    public PorHoras(String cedula, String nombre, float tarifaDiaria, float horasQuincena) {
+    public PorHoras(String cedula, String nombre, float tarifaHora, float horasQuincena) {
         this.cedula = cedula;
         this.nombre = nombre;
-        this.tarifaDiaria = tarifaDiaria;
+        this.tarifaHora = tarifaHora;
         this.horasQuincena = horasQuincena;
     }
 
@@ -36,14 +36,15 @@ public class PorHoras extends Empleado {
         this.nombre = nombre;
     }
 
-    public float getTarifaDiaria() {
-        return tarifaDiaria;
+    public float getTarifaHora() {
+        return tarifaHora;
     }
 
-    public void setTarifaDiaria(float tarifaDiaria) {
-        this.tarifaDiaria = tarifaDiaria;
+    public void setTarifaHora(float tarifaHora) {
+        this.tarifaHora = tarifaHora;
     }
 
+   
     public float getHorasQuincena() {
         return horasQuincena;
     }
@@ -55,11 +56,8 @@ public class PorHoras extends Empleado {
 
     @Override
     public double salarioQuincena() {
-        
-        
-        
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        return horasQuincena*tarifaHora;
+         }
 
     @Override
     public double pagarIncentivo() {
