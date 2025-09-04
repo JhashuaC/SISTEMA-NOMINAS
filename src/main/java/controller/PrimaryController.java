@@ -2,12 +2,15 @@ package controller;
 
 import app.App;
 import java.io.IOException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import modelo.Empleado;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -19,8 +22,7 @@ import javafx.scene.control.TableView;
  * @author marco
  */
 public class PrimaryController {
-    
-
+  
     @FXML
     private Button btnCargar1;
     @FXML
@@ -30,21 +32,23 @@ public class PrimaryController {
     @FXML
     private Label lblTitulo1;
     @FXML
-    private TableView<?> tablaUsuarios1;
+    private TableView<Empleado> tablaUsuarios1;
     @FXML
-    private TableColumn<?, ?> colCedula1;
+    private TableColumn<Empleado, String> colCedula1;
     @FXML
-    private TableColumn<?, ?> colNombre1;
+    private TableColumn<Empleado, String> colNombre1;
     @FXML
-    private TableColumn<?, ?> colTipo1;
+    private TableColumn<Empleado, String> colTipo1;
     @FXML
-    private TableColumn<?, ?> colSalario1;
+    private TableColumn<Empleado, Double> colSalario1;
     @FXML
-    private TableColumn<?, ?> colBono1;
+    private TableColumn<Empleado, Double> colBono1;
     @FXML
-    private TableColumn<?, ?> colTotal1;
+    private TableColumn<Empleado, Double> colTotal1;
     @FXML
     private Button btnSalir;
+    
+    private ObservableList<Empleado> empleados = FXCollections.observableArrayList();
 
     @FXML
     private void onCargar(ActionEvent event) {
