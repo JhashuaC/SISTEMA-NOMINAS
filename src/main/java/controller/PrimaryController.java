@@ -105,6 +105,7 @@ public class PrimaryController {
 
     @FXML
     private void onSalir(ActionEvent event) {
+        System.exit(0);
     }
     
 }
