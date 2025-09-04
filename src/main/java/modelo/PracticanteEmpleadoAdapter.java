@@ -1,20 +1,20 @@
 package modelo;
 
-
 /**
- * Adaptador que permite tratar un Practicante como un Empleado.
- * Implementa todos los métodos necesarios de la clase Empleado.
+ * Adaptador que permite tratar un Practicante como un Empleado. Implementa
+ * todos los métodos necesarios de la clase Empleado.
  */
 public final class PracticanteEmpleadoAdapter extends Empleado {
 
     private final Practicante practicante;
 
-     /**
+    /**
      * Crea un adaptador de un practicante.
+     *
      * @param practicante Instancia del practicante a adaptar.
      */
     public PracticanteEmpleadoAdapter(Practicante practicante) {
-   
+
         this.practicante = practicante;
     }
 
