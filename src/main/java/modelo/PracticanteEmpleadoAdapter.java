@@ -9,13 +9,12 @@ public final class PracticanteEmpleadoAdapter extends Empleado {
 
     private final Practicante practicante;
 
-    
      /**
      * Crea un adaptador de un practicante.
      * @param practicante Instancia del practicante a adaptar.
      */
     public PracticanteEmpleadoAdapter(Practicante practicante) {
-        // No llames a super(cedula,nombre) si Empleado no tiene ese ctor
+   
         this.practicante = practicante;
     }
 
