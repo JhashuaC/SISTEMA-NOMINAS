@@ -2,6 +2,7 @@ infra\ExportadorCSV.class
 app\App.class
 infra\RepositorioCSV.class
 modelo\PorHoras.class
+controller\PrimaryController$1.class
 controller\PrimaryController.class
 modelo\BonificableInterface.class
 modelo\Empleado.class
