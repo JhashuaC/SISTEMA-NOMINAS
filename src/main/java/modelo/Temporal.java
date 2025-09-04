@@ -76,4 +76,9 @@ public class Temporal extends Empleado {
     public String toString() {
         return "Temporal{" + "nombre=" + nombre + '}';
     }
+
+    @Override
+    public String getTipo() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

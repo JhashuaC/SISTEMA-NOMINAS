@@ -74,6 +74,11 @@ public class PorHoras extends Empleado {
     public String toString() {
         return "PorHoras{" + "nombre=" + nombre + '}';
     }
+
+    @Override
+    public String getTipo() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
     
