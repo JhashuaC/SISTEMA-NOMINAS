@@ -22,7 +22,8 @@ public class Temporal extends Empleado {
 
     @Override
     public double salarioQuincena() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   return tarifaDiaria*diasActivos;
+    
     }
 
     @Override
@@ -43,7 +44,8 @@ public class Temporal extends Empleado {
         this.cedula = cedula;
     }
 
-    
+
+
     public String getNombre() {
         return nombre;
     }
