@@ -1,5 +1,6 @@
 package controller;
 
+import infra.ExportadorCSV;
 import infra.RepositorioCSV;
 import java.io.File;
 import java.io.IOException;
@@ -209,10 +210,33 @@ private void onCargar(ActionEvent event) {
     }
 
     @FXML
-    private void OnExportar(ActionEvent event) {
-        // Implementar luego con tu RepositorioCSV.escribirLineas(...)
-    //    info("Exportar", "Implementa aquí la exportación a CSV (planilla_quincena.csv).");
+private void OnExportar(ActionEvent event) {
+    try {
+        if (empleados.isEmpty()) {
+            info("Sin datos", "No hay registros para exportar. Carga el CSV primero.");
+            return;
+        }
+
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Guardar planilla_quincena.csv");
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV", "*.csv"));
+        File outDir = new File("out");
+        if (!outDir.exists()) outDir.mkdirs();
+        fc.setInitialDirectory(outDir);
+        fc.setInitialFileName("planilla_quincena.csv");
+
+        File chosen = fc.showSaveDialog(tablaUsuarios1.getScene().getWindow());
+        if (chosen == null) return;
+
+        int escritos = ExportadorCSV.exportarPlanilla(chosen.getAbsolutePath(), empleados);
+        info("Exportación exitosa",
+            "Se exportaron " + escritos + " registros a:\n" + chosen.getAbsolutePath());
+    } catch (Exception ex) {
+        error("Error al exportar", ex.getMessage());
+        ex.printStackTrace();
     }
+}
+
 
     @FXML
     private void onSalir(ActionEvent event) {
