@@ -4,16 +4,16 @@ public class Temporal extends Empleado {
 
     private String cedula;
 
-    private String tarifaDiaria;
+    private double tarifaDiaria;
 
     private String nombre;
 
-    private String diasActivos;
+    private int diasActivos;
 
     public Temporal() {
     }
 
-    public Temporal(String cedula, String tarifaDiaria, String nombre, String diasActivos) {
+    public Temporal(String cedula, double tarifaDiaria, String nombre, int diasActivos) {
         this.cedula = cedula;
         this.tarifaDiaria = tarifaDiaria;
         this.nombre = nombre;
@@ -43,14 +43,7 @@ public class Temporal extends Empleado {
         this.cedula = cedula;
     }
 
-    public String getTarifaDiaria() {
-        return tarifaDiaria;
-    }
-
-    public void setTarifaDiaria(String tarifaDiaria) {
-        this.tarifaDiaria = tarifaDiaria;
-    }
-
+    
     public String getNombre() {
         return nombre;
     }
@@ -59,13 +52,23 @@ public class Temporal extends Empleado {
         this.nombre = nombre;
     }
 
-    public String getDiasActivos() {
+    public double getTarifaDiaria() {
+        return tarifaDiaria;
+    }
+
+    public void setTarifaDiaria(double tarifaDiaria) {
+        this.tarifaDiaria = tarifaDiaria;
+    }
+
+    public int getDiasActivos() {
         return diasActivos;
     }
 
-    public void setDiasActivos(String diasActivos) {
+    public void setDiasActivos(int diasActivos) {
         this.diasActivos = diasActivos;
     }
+
+    
 
     @Override
     public String toString() {
