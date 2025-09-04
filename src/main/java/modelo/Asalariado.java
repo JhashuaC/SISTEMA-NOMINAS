@@ -1,5 +1,8 @@
 package modelo;
-
+/**
+ 
+ 
+ */
 public class Asalariado extends Empleado {
 
     private String cedula;
