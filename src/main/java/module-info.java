@@ -6,5 +6,7 @@ module com.mycompany.proyecto2_paradigmas {
 opens controller to javafx.fxml; 
             exports controller;
     opens app to javafx.fxml;
+    exports modelo;
+    exports infra;
     exports app;
 }
