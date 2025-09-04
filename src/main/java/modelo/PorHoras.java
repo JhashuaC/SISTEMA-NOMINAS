@@ -1,5 +1,8 @@
 package modelo;
-
+/**
+ * Representa un empleado que cobra por horas trabajadas.
+ * Calcula el salario quincenal multiplicando la tarifa por hora por la cantidad de horas trabajadas en la quincena.
+ */
 public class PorHoras extends Empleado {
 
     private String cedula;

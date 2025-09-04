@@ -1,5 +1,9 @@
 package modelo;
 
+/**
+ * Representa un practicante de la empresa. Recibe un apoyo quincenal fijo y no
+ * percibe bonificaciones ni incentivos.
+ */
 public class Practicante implements BonificableInterface {
 
     private String cedula;
@@ -17,7 +21,10 @@ public class Practicante implements BonificableInterface {
         this.apoyoQuincena = apoyoQuincena;
     }
 
-  @Override public double Bono() { return 0.0; } // “sin bonificación por defecto”
+    @Override
+    public double Bono() {
+        return 0.0;
+    } // “sin bonificación por defecto”
 
     public String getCedula() {
         return cedula;

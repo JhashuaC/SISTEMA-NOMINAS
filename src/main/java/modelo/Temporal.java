@@ -1,5 +1,8 @@
 package modelo;
-
+/**
+ * Representa un empleado temporal.
+ * Calcula el salario quincenal multiplicando la tarifa diaria por los días activos trabajados en la quincena.
+ */
 public class Temporal extends Empleado {
 
     private String cedula;

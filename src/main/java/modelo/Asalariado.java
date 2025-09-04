@@ -1,7 +1,7 @@
 package modelo;
 /**
- 
- 
+ * Representa un empleado asalariado.
+ * Calcula el salario quincenal basado en un salario mensual fijo.
  */
 public class Asalariado extends Empleado {
 

@@ -1,5 +1,9 @@
 package modelo;
 
+/**
+ * Representa un empleado comisionista. Calcula el salario quincenal sumando un
+ * salario base y un porcentaje de las ventas realizadas en la quincena.
+ */
 public class Comisionista extends Empleado {
 
     private String cedula;
@@ -35,24 +39,22 @@ public class Comisionista extends Empleado {
         this.nombre = nombre;
         this.base = base;
     }
-    
-    
-    
-    
-  
+
     @Override
     public double pagarIncentivo() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-@Override public double salarioQuincena() {
-    double fijo = /* ¿base mensual? */ true ? base / 2.0 : base;
-    return fijo + (ventasQuincena * porcentaje);
-}
-@Override public double Bono() {
-    return ventasQuincena * 0.02; // política válida; muévela a Strategy si quieres
-}
+    @Override
+    public double salarioQuincena() {
+        double fijo = /* ¿base mensual? */ true ? base / 2.0 : base;
+        return fijo + (ventasQuincena * porcentaje);
+    }
 
+    @Override
+    public double Bono() {
+        return ventasQuincena * 0.02; // política válida; muévela a Strategy si quieres
+    }
 
     public String getCedula() {
         return cedula;
