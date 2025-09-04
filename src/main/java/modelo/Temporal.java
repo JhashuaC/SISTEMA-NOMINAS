@@ -20,21 +20,21 @@ public class Temporal extends Empleado {
         this.diasActivos = diasActivos;
     }
 
-    @Override
-    public double salarioQuincena() {
-   return tarifaDiaria*diasActivos;
-    
-    }
+    @Override public double salarioQuincena() {
+    int diasPagados = Math.min(diasActivos, 15);
+    return tarifaDiaria * diasPagados;
+}
+@Override public double Bono() {
+    return (diasActivos >= 12) ? salarioQuincena() * 0.05 : 0.0;
+}
+
 
     @Override
     public double pagarIncentivo() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public double Bono() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+  
 
     public String getCedula() {
         return cedula;

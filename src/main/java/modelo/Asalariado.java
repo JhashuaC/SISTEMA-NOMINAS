@@ -28,10 +28,9 @@ public class Asalariado extends Empleado {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public double Bono() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
+   @Override public double Bono() { return salarioMensual * 0.05; } // exacto al enunciado
+
 
     public String getCedula() {
         return cedula;

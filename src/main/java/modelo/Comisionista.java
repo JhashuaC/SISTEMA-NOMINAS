@@ -39,20 +39,20 @@ public class Comisionista extends Empleado {
     
     
     
-    @Override
-    public double salarioQuincena() {
-    return base/2 + (ventasQuincena * porcentaje) + (pagarIncentivo()/2)  ;
-    }
-
+  
     @Override
     public double pagarIncentivo() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public double Bono() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+@Override public double salarioQuincena() {
+    double fijo = /* ¿base mensual? */ true ? base / 2.0 : base;
+    return fijo + (ventasQuincena * porcentaje);
+}
+@Override public double Bono() {
+    return ventasQuincena * 0.02; // política válida; muévela a Strategy si quieres
+}
+
 
     public String getCedula() {
         return cedula;

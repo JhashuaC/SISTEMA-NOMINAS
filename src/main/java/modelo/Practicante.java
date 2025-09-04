@@ -17,10 +17,7 @@ public class Practicante implements BonificableInterface {
         this.apoyoQuincena = apoyoQuincena;
     }
 
-    @Override
-    public double Bono() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+  @Override public double bono() { return 0.0; } // “sin bonificación por defecto”
 
     public String getCedula() {
         return cedula;
