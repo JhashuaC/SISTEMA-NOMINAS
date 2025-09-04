@@ -6,9 +6,12 @@ public abstract class Empleado implements SalarioQuincenaInterface, EstrategiaIn
     public abstract String getNombre();
     public abstract String getTipo();
 
-    public double nomina() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+
+public double nomina() {
+    // total a pagar = salario quincenal + bono
+    return salarioQuincena() + Bono();
+}
+
     public void fabricarEmpleado() {
     }
 }
