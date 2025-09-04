@@ -49,6 +49,19 @@ public class PrimaryController {
     private Button btnSalir;
     
     private ObservableList<Empleado> empleados = FXCollections.observableArrayList();
+    
+    @FXML
+    public void intitialize() {
+        colCedula1.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getCedula()));
+        colNombre1.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getNombre()));
+        colTipo1.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getTipo()));
+        colSalario1.setCellValueFactory(cell -> new SimpleDoubleProperty(cell.getValue().salarioQuincena()).asObject());
+        colBono1.setCellValueFactory(cell -> new SimpleDoubleProperty(cell.getValue().getBono()).asObject());
+        colTotal1.setCellValueFactory(cell -> new SimpleDoubleProperty(cell.getValue().getTotalAPagar()).asObject());
+
+        tablaUsuarios1.setItems(empleados);
+        
+    }
 
     @FXML
     private void onCargar(ActionEvent event) {
