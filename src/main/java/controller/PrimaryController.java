@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import modelo.Empleado;
@@ -54,15 +55,40 @@ public class PrimaryController {
     
     @FXML
     public void intitialize() {
-        colCedula1.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getCedula()));
-        colNombre1.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getNombre()));
-        colTipo1.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getTipo()));
-        colSalario1.setCellValueFactory(cell -> new SimpleDoubleProperty(cell.getValue().salarioQuincena()).asObject());
-        //colBono1.setCellValueFactory(cell -> new SimpleDoubleProperty(cell.getValue().getBono()).asObject());
-       // colTotal1.setCellValueFactory(cell -> new SimpleDoubleProperty(cell.getValue().getTotalAPagar()).asObject());
-
+      // Table visual tweaks
         tablaUsuarios1.setItems(empleados);
+        tablaUsuarios1.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
+
+        // Column bindings using polymorphism
+        colCedula1.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getCedula()));
+        colNombre1.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getNombre()));
+        colTipo1.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getTipo()));
+
+        // Numeric columns
+        colSalario1.setCellValueFactory(c -> new SimpleDoubleProperty(c.getValue().salarioQuincena()).asObject());
+        colBono1.setCellValueFactory(c -> new SimpleDoubleProperty(c.getValue().Bono()).asObject());
+        colTotal1.setCellValueFactory(c -> new SimpleDoubleProperty(c.getValue().nomina()).asObject());
+
+        // Pretty format for doubles
+        applyMoneyCellFactory(colSalario1);
+        applyMoneyCellFactory(colBono1);
+        applyMoneyCellFactory(colTotal1);
         
+    }
+    
+  private void applyMoneyCellFactory(TableColumn<Empleado, Double> col) {
+        col.setCellFactory(tc -> new TableCell<Empleado, Double>() {
+            @Override
+            protected void updateItem(Double value, boolean empty) {
+                super.updateItem(value, empty);
+                if (empty || value == null) {
+                    setText(null);
+                } else {
+                    setText(String.format("%.2f", value));
+                }
+            }
+        });
     }
 
     @FXML

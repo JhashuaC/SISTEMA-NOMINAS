@@ -10,22 +10,22 @@
 
 <AnchorPane prefHeight="549.0" prefWidth="886.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PrimaryController">
    <children>
-      <Button fx:id="btnCargar1" layoutX="59.0" layoutY="489.0" mnemonicParsing="false" onAction="#onCargar" prefHeight="36.0" prefWidth="154.0" text="Cargar Empleados" textFill="#4d0a0a">
+      <Button fx:id="btnCargar1" layoutX="59.0" layoutY="489.0" mnemonicParsing="false" onAction="#onCargar" prefHeight="38.0" prefWidth="170.0" text="Cargar Empleados" textFill="#4d0a0a">
          <cursor>
         
          </cursor>
       </Button>
-      <Button fx:id="btnCalcular1" layoutX="232.0" layoutY="489.0" mnemonicParsing="false" onAction="#onCalcular" prefHeight="36.0" prefWidth="154.0" text="Calcular Planilla" textFill="#4d0a0a">
+      <Button fx:id="btnCalcular1" layoutX="247.0" layoutY="489.0" mnemonicParsing="false" onAction="#onCalcular" prefHeight="38.0" prefWidth="170.0" text="Calcular Planilla" textFill="#4d0a0a">
          <cursor>
           
          </cursor>
       </Button>
-      <Button fx:id="btnExportar1" layoutX="406.0" layoutY="489.0" mnemonicParsing="false" onAction="#OnExportar" prefHeight="32.0" prefWidth="124.0" text="Exportar CSV" textFill="#4d0a0a">
+      <Button fx:id="btnExportar1" layoutX="429.0" layoutY="489.0" mnemonicParsing="false" onAction="#OnExportar" prefHeight="38.0" prefWidth="147.0" text="Exportar CSV" textFill="#4d0a0a">
          <cursor>
           
          </cursor>
       </Button>
-      <Button layoutX="704.0" layoutY="489.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="124.0" text="Salir" textFill="#4d0a0a">
+      <Button fx:id="btnSalir" layoutX="704.0" layoutY="489.0" mnemonicParsing="false" onAction="#onSalir" prefHeight="32.0" prefWidth="124.0" text="Salir" textFill="#4d0a0a">
          <cursor>
             
          </cursor>
@@ -48,6 +48,6 @@
    </children>
    <stylesheets>
       <URL value="@app.css" />
-      <URL value="@../app.css" />
+ 
    </stylesheets>
 </AnchorPane>
