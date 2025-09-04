@@ -25,14 +25,21 @@ public class Asalariado extends Empleado {
 
     @Override
     public double pagarIncentivo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+     return 0;
     }
 
+<<<<<<< HEAD
     @Override
     public double Bono() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      return 0;
     }
+=======
+   
+   @Override public double Bono() { return salarioMensual * 0.05; } // exacto al enunciado
 
+>>>>>>> b8c0f2aad2946c0d6bc1afff3b7ac9625df67388
+
+    @Override
     public String getCedula() {
         return cedula;
     }
@@ -41,6 +48,7 @@ public class Asalariado extends Empleado {
         this.cedula = cedula;
     }
 
+    @Override
     public String getNombre() {
         return nombre;
     }
@@ -60,5 +68,10 @@ public class Asalariado extends Empleado {
     @Override
     public String toString() {
         return "Asalariado{" + "nombre=" + nombre + '}';
+    }
+
+    @Override
+    public String getTipo() {
+        return "SEA SAPO";
     }
 }
