@@ -45,15 +45,27 @@ public class Comisionista extends Empleado {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
+    /**
+     * Calcula el salario quincenal del comisionista. Combina el salario base
+     * (ajustado a la quincena) con la comisión sobre las ventas.
+     *
+     * @return Salario total de la quincena.
+     */
     @Override
     public double salarioQuincena() {
         double fijo = /* ¿base mensual? */ true ? base / 2.0 : base;
         return fijo + (ventasQuincena * porcentaje);
     }
 
+    /**
+     * Calcula la bonificación del comisionista. Aplica una política del 2%
+     * sobre las ventas de la quincena.
+     *
+     * @return Monto de la bonificación.
+     */
     @Override
     public double Bono() {
-        return ventasQuincena * 0.02; // política válida; muévela a Strategy si quieres
+        return ventasQuincena * 0.02; 
     }
 
     public String getCedula() {
