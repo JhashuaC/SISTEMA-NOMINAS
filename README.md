@@ -1,111 +1,84 @@
-Sistema de Gestión de Nómina (JavaFX)
+Manual de uso — Sistema de Nómina (JavaFX)
 
-Proyecto académico en JavaFX para gestionar la nómina quincenal de diferentes tipos de personal, con carga/parseo desde CSV, cálculo de salario + bono, exportación de la planilla y estilos CSS con paleta verde. Incluye pruebas JUnit en el paquete de tests.
+Este documento explica cómo usar la aplicación (usuario final) y muestra un ejemplo de ejecución. No necesitas conocer detalles técnicos del proyecto.
 
-📦 Características
+Requisitos
 
-UI JavaFX con TableView y botones:
+Java instalado (JRE/JDK 17 o superior).
 
-Cargar: selecciona y carga un CSV de empleados.
+JavaFX incluido en la app (si te entregaron un .exe/.app/.jar ejecutable, basta con doble clic).
 
-Calcular: refresca/recalcula valores mostrados.
+Un archivo CSV con los colaboradores a calcular.
 
-Exportar: guarda la planilla (CSV) con salario, bono y total a pagar.
+Cómo iniciar la aplicación
+Opción A: Doble clic
 
-Salir: cierra la aplicación.
+Localiza el archivo entregado (por ejemplo, NominaApp.jar o instalador).
 
-Importación CSV robusta (admite decimales con , o . y porcentaje 5 o 0.05).
+Doble clic para abrir. Se mostrará la ventana principal con una tabla vacía y los botones Cargar, Calcular, Exportar y Salir.
 
-Exportación CSV con encabezado estándar.
+Opción B: Desde NetBeans (si te lo dieron como proyecto)
 
-Modelo orientado a objetos con polimorfismo:
+Abre el proyecto en NetBeans.
 
-Asalariado, PorHoras, Temporal, Comisionista extienden Empleado.
+Presiona Run (F6).
 
-Practicante NO extiende Empleado. Se integra en la tabla mediante Adapter: PracticanteEmpleadoAdapter.
+Se abrirá la misma ventana principal.
 
-Política de Bonos clara y separada de salarioQuincena().
+Uso paso a paso
 
-Estilos modernos (CSS JavaFX) con paleta: #16A34A, #22C55E, #065F46, #DCFCE7.
+Cargar (importar CSV)
 
-Pruebas unitarias (JUnit) en Test Packages.
+Pulsa Cargar.
 
-🧱 Estructura del proyecto
-src/
- ├─ main/java/
- │   ├─ app/                  # App launcher (JavaFX)
- │   ├─ controller/           # PrimaryController (lógica de UI)
- │   ├─ infra/                # RepositorioCSV, ExportadorCSV (IO)
- │   └─ modelo/               # Empleado y subtipos + Adapter
- │
- ├─ main/resources/
- │   ├─ view/                 # FXML 
- │   └─ css/                  # app.css 
- │
- └─ test/java/
-     ├─ modelo/               # Tests de modelos
-     └─ infra/                # Tests de IO (CSV)
+Selecciona el archivo empleados.csv.
 
-👥 Modelos y Reglas de Cálculo
+La tabla mostrará las filas cargadas (cédula, nombre, tipo, salario quincenal, bono y total a pagar).
 
-Empleado.nomina() = salarioQuincena() + Bono().
-No mezcles bonos/incentivos dentro de salarioQuincena().
+Si alguna línea del CSV está mal, la app te mostrará una advertencia, pero cargará lo correcto.
 
-Asalariado
+Calcular
 
-salarioQuincena() = salarioMensual / 2
+Pulsa Calcular para refrescar los resultados en pantalla (si cambiaste el archivo y recargaste, o si deseas actualizar la vista).
 
-Bono() = 5% del salario mensual
+Exportar
 
-PorHoras
+Pulsa Exportar.
 
-salarioQuincena() = tarifaHora * horasQuincena
+Elige dónde guardar la planilla quincenal (por ejemplo, planilla_quincena.csv).
 
-Bono() = 10% del salario quincenal si horasQuincena > 80; si no, 0
+Se creará un archivo con encabezado:
+cedula;nombre;tipo;salarioQuincena;bono;totalAPagar.
 
-Temporal
+Salir
 
-salarioQuincena() = tarifaDiaria * diasPagados, con tope de 15 días
+Pulsa Salir para cerrar la aplicación.
 
-Bono() = 5% del salario quincenal si diasActivos >= 12; si no, 0
+Formato del archivo CSV de entrada
 
-Comisionista
-
-salarioQuincena() = base/2 (si base es mensual) + (ventasQuincena * porcentaje)
-
-Bono() = 2% de ventasQuincena
-
-Practicante
-
-No hereda de Empleado.
-
-PracticanteEmpleadoAdapter lo adapta para la TableView<Empleado>.
-
-salarioQuincena() = apoyoQuincena
-
-Bono() = 0
-
-Sugerencia de diseño: si luego quieres cambiar políticas sin tocar los modelos, crea una Strategy de Incentivos y haz que pagarIncentivo() delegue a esa estrategia.
-
-🧾 Formato del CSV de entrada
-
-Cada línea comienza por el tipo y luego los campos; separador ;.
+Cada línea representa una persona. Los campos se separan con ;.
+Tipos admitidos:
 
 ASALARIADO;cedula;nombre;salarioMensual
+
 PORHORAS;cedula;nombre;tarifaHora;horasQuincena
+
 TEMPORAL;cedula;nombre;tarifaDiaria;diasActivos
+
 COMISIONISTA;cedula;nombre;base;porcentaje;ventasQuincena
+
 PRACTICANTE;cedula;nombre;apoyoQuincena
 
+Notas:
 
-porcentaje puede venir como 5 (5%) o 0.05 (5%).
+El porcentaje puede venir como 5 (5%) o 0.05 (5%).
 
-Decimales con , o ..
+Decimales válidos con coma o punto (ej.: 17500,5 o 17500.5).
 
-Líneas vacías o que inicien con # se ignoran.
+Líneas vacías o que empiecen con # se ignoran.
 
-CSV de ejemplo (colócalo como data/empleados.csv)
-# Ejemplos variados
+Ejemplo de empleados.csv
+# Ejemplos variados para probar
 ASALARIADO;10101010;Ana Salgado;900000
 PORHORAS;20202020;Luis Pérez;5000;82
 TEMPORAL;30303030;María Gómez;20000;18
@@ -118,168 +91,35 @@ TEMPORAL;33333333;Laura Méndez;17500,5;12
 COMISIONISTA;44444444;Diego Mora;500000;0.03;8000000
 PRACTICANTE;55555555;Pedro Sánchez;0
 
-💾 Exportación de la planilla
+Ejemplo de ejecución
 
-El botón Exportar genera un CSV con encabezado:
+Abre la app y pulsa Cargar → selecciona el CSV anterior.
+
+Verás la tabla con filas como:
+
+Cédula	Nombre	Tipo	Salario Quincena	Bono	Total
+10101010	Ana Salgado	Asalariado	450000.00	45000.00	495000.00
+20202020	Luis Pérez	PorHoras	410000.00	41000.00	451000.00
+30303030	María Gómez	Temporal	300000.00	15000.00	315000.00
+40404040	Carlos Rojas	Comisionista	900000.00	240000.00	1,140,000.00
+50505050	Sofía Torres	Practicante	150000.00	0.00	150000.00
+(valores ilustrativos con las políticas por defecto)					
+
+Pulsa Exportar → elige ubicación y nombre (ej. planilla_quincena.csv).
+
+Abre el archivo exportado:
 
 cedula;nombre;tipo;salarioQuincena;bono;totalAPagar
-
-
-Ejemplo de fila:
-
 10101010;Ana Salgado;Asalariado;450000.00;45000.00;495000.00
+20202020;Luis Pérez;PorHoras;410000.00;41000.00;451000.00
+30303030;María Gómez;Temporal;300000.00;15000.00;315000.00
+40404040;Carlos Rojas;Comisionista;900000.00;240000.00;1140000.00
+50505050;Sofía Torres;Practicante;150000.00;0.00;150000.00
 
+Consejos rápidos
 
-Implementación clave:
+Si al Cargar aparece un aviso, revisa el CSV (tipo correcto y cantidad de campos).
 
-infra.ExportadorCSV – generarLineasPlanilla(...) y exportarPlanilla(ruta, empleados)
+Si los montos no se ven actualizados, pulsa Calcular para refrescar.
 
-PrimaryController.OnExportar(...) – muestra diálogo “Guardar como…” y llama al exportador.
-
-🎨 Estilos (CSS JavaFX)
-
-Paleta verde:
-
---primary: #16A34A
-
---accent: #22C55E
-
---dark: #065F46
-
---bg: #DCFCE7
-
-Incluye:
-
-Header de tabla plano (sin degradados de Modena).
-
-Zebra rows.
-
-Botones con hover/pressed y sombras suaves.
-
-Card contenedora (aplica styleClass="card" a tu VBox/AnchorPane).
-
-Si algo no se aplica, revisa que el CSS esté agregado a la escena y que los selectores sean correctos para JavaFX (.table-row-cell, no .row-cell).
-
-🧩 Componentes principales
-
-UI / Controller
-
-controller.PrimaryController
-
-onCargar(...): abre selector de archivos y delega en RepositorioCSV
-
-onCalcular(...): refresca la tabla
-
-OnExportar(...): guarda planilla via ExportadorCSV
-
-Infraestructura
-
-infra.RepositorioCSV
-
-seleccionarArchivoCSV(Window)
-
-cargarEmpleados(ruta, erroresOut) – retorna List<Empleado>
-
-LeerLineas(...) / escribirLineas(...)
-
-infra.ExportadorCSV
-
-generarLineasPlanilla(...)
-
-exportarPlanilla(ruta, empleados)
-
-Modelo
-
-modelo.Empleado (abstracto): salarioQuincena(), Bono(), nomina()
-
-Subclases: Asalariado, PorHoras, Temporal, Comisionista
-
-Practicante (no hereda de Empleado)
-
-PracticanteEmpleadoAdapter (patrón Adapter)
-
-▶️ Ejecución
-Requisitos sugeridos
-
-JDK 17+
-
-JavaFX 17+
-
-NetBeans/IntelliJ/Eclipse configurado para JavaFX.
-
-Opciones VM (si ejecutas desde línea de comandos)
-
-Ajusta la ruta a tu SDK de JavaFX:
-
---module-path "C:\javafx\lib" --add-modules=javafx.controls,javafx.fxml
-
-
-En NetBeans, configura JavaFX en Project Properties → Run.
-
-🧪 Pruebas (JUnit en Test Packages)
-
-Project → Properties → Libraries → Test Libraries → Add Library → JUnit 5
-(Si solo tienes JUnit 4, puedes usarlo cambiando imports).
-
-Crea clases de prueba en Test Packages con el mismo package que el código.
-
-Ejecuta Project → Test.
-
-Tests incluidos (sugeridos):
-
-modelo/AsalariadoTest.java
-
-modelo/PorHorasTest.java
-
-modelo/TemporalTest.java
-
-modelo/ComisionistaTest.java
-
-modelo/PracticanteEmpleadoAdapterTest.java
-
-infra/RepositorioCSVTest.java
-
-infra/ExportadorCSVTest.java
-
-🛠️ Problemas comunes (Troubleshooting)
-
-UnsupportedOperationException en Empleado.nomina()
-Implementa:
-
-public double nomina() { return salarioQuincena() + Bono(); }
-
-
-Encabezado de tabla con degradado gris
-Quita el degradado por defecto:
-
-.table-view .column-header-background { -fx-background-insets: 0; }
-
-
-Selector de CSS incorrecto
-Usa .table-row-cell (no .row-cell).
-
-CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS no existe
-Usa TableView.CONSTRAINED_RESIZE_POLICY.
-
-initialize() no se ejecuta
-Verifica ortografía exacta (initialize, sin doble “t”).
-
-➕ Extender el sistema
-
-Nuevos tipos de personal
-Crea una clase que extienda Empleado (o un Adapter si no quieres heredar) e implementa:
-
-salarioQuincena()
-
-Bono()
-
-Cambiar política de bonos
-Extrae la lógica a una Strategy y haz que pagarIncentivo() delegue ahí. Así no tocas los modelos y cumples OCP.
-
-📄 Licencia
-
-Uso académico/educativo. Puedes adaptar y reutilizar el código citando la fuente del proyecto.
-
-🙌 Créditos
-
-Desarrollado como práctica de POO, herencia y polimorfismo con JavaFX y JUnit. Si necesitas dejar el proyecto listo con Strategy y/o Planillable (interfaz unificadora), dilo y te lo agrego.
+Guarda siempre la Exportación en una ruta que recuerdes (como Documentos o una carpeta out/).
