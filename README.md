@@ -39,8 +39,8 @@ src/
  │   └─ modelo/               # Empleado y subtipos + Adapter
  │
  ├─ main/resources/
- │   ├─ view/                 # FXML (si aplica)
- │   └─ css/                  # app.css (tema verde)
+ │   ├─ view/                 # FXML 
+ │   └─ css/                  # app.css 
  │
  └─ test/java/
      ├─ modelo/               # Tests de modelos
