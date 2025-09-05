@@ -22,7 +22,7 @@ import java.io.IOException;
  * {@code app} y una hoja de estilos en {@code /app/app.css}.
  * </p>
  *
- * @author marco
+ * @author  y jhashua
  * @see javafx.application.Application
  */
 public class App extends Application {
