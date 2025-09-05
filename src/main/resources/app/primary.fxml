@@ -30,7 +30,7 @@
             
          </cursor>
       </Button>
-      <Label fx:id="lblTitulo1" alignment="CENTER" contentDisplay="CENTER" layoutX="309.0" layoutY="34.0" prefHeight="55.0" prefWidth="269.0" text="SISTEMA DE NÓMINAS">
+      <Label fx:id="lblTitulo1" alignment="CENTER" contentDisplay="CENTER" layoutX="245.0" layoutY="32.0" prefHeight="55.0" prefWidth="397.0" text="SISTEMA DE NÓMINAS RRHH" textFill="WHITE">
          <font>
             <Font name="Berlin Sans FB" size="24.0" />
          </font>
