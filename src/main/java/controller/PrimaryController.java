@@ -98,7 +98,7 @@ public class PrimaryController {
      *
      * @param col Columna a la que se aplicará el formato.
      */
-    private void applyMoneyCellFactory(TableColumn<Empleado, Double> col) {
+    public void applyMoneyCellFactory(TableColumn<Empleado, Double> col) {
         col.setCellFactory(tc -> new TableCell<Empleado, Double>() {
             @Override
             protected void updateItem(Double value, boolean empty) {
@@ -115,7 +115,7 @@ public class PrimaryController {
      * @param event Evento de acción disparado por JavaFX.
      */
     @FXML
-    private void onCargar(ActionEvent event) {
+    public void onCargar(ActionEvent event) {
         try {
             String ruta = RepositorioCSV.seleccionarArchivoCSV(tablaUsuarios1.getScene().getWindow());
             if (ruta == null) {
@@ -148,7 +148,7 @@ public class PrimaryController {
      * @param event Evento de acción disparado por JavaFX.
      */
     @FXML
-    private void onCalcular(ActionEvent event) {
+    public void onCalcular(ActionEvent event) {
         tablaUsuarios1.refresh();
         info("Cálculo", "Totales recalculados.");
     }
@@ -160,7 +160,7 @@ public class PrimaryController {
      * @param event Evento de acción disparado por JavaFX.
      */
     @FXML
-    private void OnExportar(ActionEvent event) {
+    public void OnExportar(ActionEvent event) {
         try {
             if (empleados.isEmpty()) {
                 info("Sin datos", "No hay registros para exportar. Carga el CSV primero.");
@@ -192,7 +192,7 @@ public class PrimaryController {
     }
 
     @FXML
-    private void onSalir(ActionEvent event) {
+    public void onSalir(ActionEvent event) {
         System.exit(0);
     }
 
@@ -202,7 +202,7 @@ public class PrimaryController {
      * @param title Título de la ventana.
      * @param msg Mensaje a mostrar.
      */
-    private void info(String title, String msg) {
+    public void info(String title, String msg) {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setTitle(title);
         a.setHeaderText(null);
@@ -216,7 +216,7 @@ public class PrimaryController {
      * @param title Título de la ventana.
      * @param msg Mensaje a mostrar.
      */
-    private void error(String title, String msg) {
+    public void error(String title, String msg) {
         Alert a = new Alert(Alert.AlertType.ERROR);
         a.setTitle(title);
         a.setHeaderText(title);
